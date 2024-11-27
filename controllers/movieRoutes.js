@@ -19,7 +19,12 @@ router.get('/:id', async (req, res) => {
   );
   console.log(response)
   const movie = response.data;
+  req.session.save(()=>{
+    req.session.movie=movie
+    console.log(movie)
   res.render('movie', { movie });
+  })
+  
 });
 
 module.exports = router;

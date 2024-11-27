@@ -22,7 +22,7 @@
       <ul class="comments-list">
         {{#each comments}}
           <li>
-            <a href="/movie">{{movie.original_title}}</a> - {{this.content}} - Rating: {{this.rating}}/10 <br>
+            <a href="/movies/{{this.movie_id}}">{{this.original_title}}</a> - {{this.content}} - Rating: {{this.rating}}/10 <br>
             {{!-- <em>Posted on: {{formatDate this.createdAt}}</em> --}}
           </li>
         {{/each}}

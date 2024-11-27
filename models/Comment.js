@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require('sequelize');
+const { Model, DataTypes, STRING } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Comment extends Model {}
@@ -29,6 +29,9 @@ Comment.init(
     original_title: {
       type: DataTypes.STRING,
     },
+    movie_id: {
+      type: DataTypes.STRING,
+    }
   },
   {
     sequelize,

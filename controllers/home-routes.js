@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Comment } = require('../models');
+const { User, Comment, Movie } = require('../models');
 const bcrypt = require('bcrypt');
 const withAuth = require('../utils/auth');
 
@@ -45,7 +45,8 @@ router.get('/profile', withAuth, async (req, res) => {
         })
         let selectedUser= userData.get({plain:true})
         console.log(selectedUser) 
-        res.render('profile', {...selectedUser, logged_in: req.session.logged_in})
+        console.log(req.session.movie)
+        res.render('profile', {...selectedUser, logged_in: req.session.logged_in, movie:req.session.movie})
     }
     catch(err){
         return res.status(500).json(err)
